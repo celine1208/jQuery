@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <ul class="nav1">
+        <li style = "display:none;">0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="nav2">
+        <li style = "display:none;">0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+        <script>
+        //foreach 문으로 모든 li에 배경넣기
+        document.querySelectorAll('li').forEach(function(li){
+            li.style.backgroundColor = '#f5c7f7';
+        });
+
+        // $("#container").css({border: '1px solid #000'});
+        // $(".nav + ul").css({border:'1px solid #000'});
+        // $("li:first-child").css({background: '#ccf'});
+        // $("ul li:lt(2)").css({backgroundColor:'#fcc'});
+        // $("ul li:gt(2)").css({backgroundColor:'#fcc'});
+        // $("ul li:first").css({backgroundColor:'#fcc'});
+        // $("ul li:last").css({backgroundColor:'#fcc'});
+        // $("ul li:odd").css({backgroundColor:'#27296d'});
+        // $("ul li:even").css({backgroundColor:'#27296d'});
+        // $("ul li:not(:eq(3))").css({backgroundColor:'#f5c7f7'});
+        // $('ul li:empty').css({backgroundColor: '#ccc'});
+        // $("ul li:parent").css({backgroundColor:'#ccc'});
+        // $("ul li:not(:empty)").css({backgroundColor:'#ccc'});
+        // $("ul li: hidden").css({display:'block'});
+        // $("ul li: hidden").show(500);
+        // $("ul li: visible").hide(1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append, prepend</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="container">
+        <p>안녕하세요</p>
+    </div>
+
+    <script>
+        $('#container').append("<p>반갑습니다.</p>")
+        $('#container').append($("#container p:first"))
+        $('#container').prepend('<p>환영합니다.</p>')
+        $('#container').prepend($("#container p:last"))
+    </script>
+</body>
+</html>

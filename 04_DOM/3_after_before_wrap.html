@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>after,before,wrap</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="container">형제를 만들어주세요</div>
+    <script>
+        $("#container").after("<div>추가된 형제1</div>")
+        $("#container").before("<div>추가된 형제2</div>")
+        $("#container").wrap("<div>")
+        $("#container").wrapInner("<div>")
+    </script>
+</body>
+</html>

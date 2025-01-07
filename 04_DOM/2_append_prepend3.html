@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append, prepend</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="container">
+        <img src="../images/pic1.jpg" alt="" width="200">
+        <img src="../images/pic2.jpg" alt="" width="200">
+        <img src="../images/pic3.jpg" alt="" width="200">
+    </div>
+    <div>
+        <button>prepend</button>
+        <button>append</button>
+    </div>
+
+    <script>
+        $("button:first").on('click', function(){
+            $("#container").prepend($("#container img:last"))
+        })
+        $("button:last").on('click', function(){
+            $("#container").append($("#container img:first"))
+        })
+    </script>
+</body>
+</html>

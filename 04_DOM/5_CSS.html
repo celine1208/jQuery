@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 문법</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div>CSS문법 살펴보기</div>
+
+    <script>
+        // $("div").css('width', '115px').css('border', '1px solid #000');
+        $("div").css({
+        width: 400,
+        height: 200,
+        border: '1px solid #000',
+        backgroundColor: '#ccf',
+        fontSize: 30,
+        lineHeight: '200px',
+        textAlign: 'center'
+        });
+    </script>
+</body>
+</html>

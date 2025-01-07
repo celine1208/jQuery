@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append, prepend</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <button>이미지 추가</button>
+    <br>
+    <br>
+    <div id="container">
+        <!-- <img src="../images/pic1.jpg" alt="" width="200"> -->
+    </div>
+
+    <script>
+        // $("#container").append(`<img src="../images/pic2.jpg" alt="" width="200">`)
+        $("button").on('click', function(e) {
+            let num = Math.ceil(Math.random()*3)
+            $("#container").append(`<img src="../images/pic${num}.jpg" alt="" width="200">`)
+        })
+    </script>
+</body>
+</html>

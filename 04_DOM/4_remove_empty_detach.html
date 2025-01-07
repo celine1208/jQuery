@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove,empty,detach</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id ="container">
+        <img src="../images/pic1.jpg" alt="">
+        <img src="../images/pic2.jpg" alt="">
+        <img src="../images/pic3.jpg" alt="">
+    </div>
+    <div class="container">
+        <p>jQuery</p>
+        <p>javaScript</p>
+        <p>react</p>
+    </div>
+    <script>
+        // $("#container img:first").remove(); // 복구 불가능
+        // $("#container img:eq(0)").remove();
+        // $("#container img:last").empty();
+        // $("#container img").detach(); // 복구 가능
+        // $(".container p:first").remove();
+        // $(".container p:eq(0)").remove();
+        // $(".container p:last").empty();
+    </script>
+</body>
+</html>

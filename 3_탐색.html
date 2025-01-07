@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탐색</title>
+    <style>
+        #container {
+            display: flex;
+            gap: 30px;
+        }
+        #sub {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+        p {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script src="./jquery-3.7.1.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="sub">
+            <p>div > p</p>
+        </div>
+        <p id="part1">p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <div class="sub">div</div>
+    </div>
+
+    <script>
+        // $("#container p").css({ backgroundColor: "pink" })
+
+        // find : 대상의 하위요소
+        // $("#container").find('p').css({ backgroundColor: "pink" })
+
+        // $("#container > p").css({ backgroundColor: "pink" })
+        // $("#container").children('p').css({ backgroundColor: "pink" })
+
+        // 형제요소 next(), prev(), siblings()
+        // $("#part1 + p").css({ backgroundColor: 'pink' })
+        // $("#part1").next().css({ backgroundColor: 'pink' })
+        // $("#part1").prev().css({ backgroundColor: 'pink' })
+        // $("#part1").siblings('p').css({ backgroundColor: 'pink'})
+
+        // 부모요소
+        // $("#sub").parent().css({border: '1px solid #000'})
+        // $("#sub").parent().parent().css({border: '1px solid #000'})
+        // $("#sub").parents().css({border: '1px solid #000'})
+
+        // 필터링
+        $('#container p').first().css({backgroundColor: 'pink'})
+        $('#container p').eq(1).css({backgroundColor: 'pink'})
+        $('#container p').last().css({backgroundColor: 'pink'})
+        $('#container div').filter('.sub').css({backgroundColor: 'pink'})
+        $('#container div').not('.sub').css({backgroundColor: 'red'})
+    </script>
+</body>
+</html>
