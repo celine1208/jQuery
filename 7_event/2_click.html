@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        ul li {list-style: none; ;}
+        body {display: flex ; flex-direction: column;}
+        ul {display:flex;justify-content: center;}
+        li {width: 100px; height: 30px;
+            border: 1px solid #000;
+            text-align: center; line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="../images/flower.jpg">flower</a></li>
+        <li><a href="../images/sea.jpg">sea</a></li>
+        <li><a href="../images/Jellyfish.jpg">jellyfish</a></li>
+        <li><a href="../images/building.jpg">building</a></li>
+    </ul>
+    <img src="../images/flower.jpg" alt="flower">
+    <script>
+        // $('li').on('click', function(e){
+        //     e.preventDefault();
+        //     let imgSrc = $(this).children('a').attr('href');
+        //     let imgAlt = $(this).children('a').text();
+        //     $('img').attr({src: imgSrc, alt: imgAlt});
+        // })
+
+        // $('li:eq(0) a').on('click', function(e){
+        //     e.preventDefault();
+        //     $('img').attr({src: '../images/flower.jpg', alt: 'sea'})
+        // })
+        // $('li:eq(1) a').on('click', function(e){
+        //     e.preventDefault();
+        //     $('img').attr({src: '../images/sea.jpg', alt: 'sea'})
+        // })
+        // $('li:eq(2) a').on('click', function(e){
+        //     e.preventDefault();
+        //     $('img').attr({src: '../images/Jellyfish.jpg', alt: 'sea'})
+        // })
+        // $('li:eq(3) a').on('click', function(e){
+        //     e.preventDefault();
+        //     $('img').attr({src: '../images/building.jpg', alt: 'sea'})
+        // })
+        
+        $('li a')
+            .on('mousedown',function(e){
+                let imgSrc = $(this).attr('href')
+                let imgAlt = $(this).attr('alt')
+                $('img').attr({src:imgSrc, alt:imgAlt})
+            })
+            .on('click', function(e){
+                e.preventDefault();
+            })
+    </script>
+
+</body>
+</html>

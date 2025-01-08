@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a { text-transform: uppercase; }
+    </style>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // a 태그의 속성을 변경
+            // $("a").attr('href', 'http://www.jquery.com').attr('target', '_blank');
+            $("a").attr({ href: 'http://www.jquery.com', target: '_blank'})
+                  .text('jQuery Official Site')
+
+            // $("button").on('click', function(){$("a").removeAttr('target');});
+            // $("button").on('click', function(){ $("a").attr('target', '_blank');});
+            
+            // $('button').on('click',function(){
+            //     if($('a').attr('target')) {
+            //         $('a').removeAttr('target')
+            //     }
+            //     else { $('a').attr({target:'_blank'})}
+            // })
+            });
+        
+    </script>
+</head>
+<body>
+    <button>속성</button>
+    <div>
+        <a href="#">jQuery</a>
+    </div>
+    <script>
+        const btn = document.querySelector('button');
+        const a = document.querySelector('a');
+
+        btn.addEventListener('click', function(){
+            if(a.hasAttribute('target')) {
+                a.removeAttribute('target');
+            }
+            else { a.target = '_blank'}
+            });
+    </script>
+</body>
+</html>

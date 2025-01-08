@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.7.2.js"></script> -->
+    <script src="../jquery-migrate-1.4.1.js"></script>
+</head>
+<body>
+    <button>change</button>
+    <img src="../images/flower.jpg" alt="flower">
+
+    <script>
+        // $('button').toggle(function(){
+        //     $('img').attr({src:'../images/sea.jpg', alt: 'sea'})
+        // },function(){
+        //     $('img').attr({src:'../images/flower.jpg', alt: 'flower'})
+        // },function(){
+        //     $('img').attr({src:'../images/Jellyfish.jpg', alt: 'jellyfish'})
+        // },function(){
+        //     $('img').attr({src:'../images/building.jpg', alt: 'building'})
+        // })
+        // $('img').attr({src: '../images/sea/jpg', alt: 'sea'})
+
+        // if문을 활용하여 버튼 클릭시 이미지 변경하기
+        // let n = 0;
+        // $('button').on('click',function(){
+        //     n++;
+        //     if (n === 1)
+        //         {$('img').attr({src: `../images/flower.jpg`, alt: `flower`})}
+        //     else if (n === 2)
+        //         {$('img').attr({src: `../images/building.jpg`, alt: `building`})}
+        //     else if (n === 3)
+        //         {$('img').attr({src: `../images/Jellyfish.jpg`, alt: `jellyfish`})}
+        //     else if (n === 4)
+        //         {n=0; $('img').attr({src: `../images/sea.jpg`, alt: `sea`})}
+        // });
+        //switch문을 활용하여 버튼 클릭시 이미지 변경하기
+        let n = 0;
+        $('button').on('click',function(){
+            n++;
+            switch(n){
+                case 1:
+                    $('img').attr({src: `../images/flower.jpg`, alt: `flower`});
+                    break;
+                case 2:
+                    $('img').attr({src: `../images/building.jpg`, alt: `building`});
+                    break;
+                case 3:
+                    $('img').attr({src: `../images/Jellyfish.jpg`, alt: `jellyfish`});
+                    break;
+                case 4:
+                    n=0;
+                    $('img').attr({src: `../images/sea.jpg`, alt: `sea`});
+                    break;
+            }
+        });
+
+    </script>
+</body>
+</html>

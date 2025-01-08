@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click, dblclick</title>
+    <script src="../jquery-3.7.1.js"></script>
+</head>
+<body>
+    <!-- <button>화면변경</button> -->
+    <a href="../images/sea.jpg">화면변경</a>
+    <p><img src="../images/flower.jpg" alt="flower"></p>
+    <script>
+        // a 태그를 클릭시 sea.jpg로 변경 alt="sea"로 변경
+        // $('a').click(function(){
+        //     $('p img').attr({ src: '../images/sea.jpg', alt: 'sea' });
+        //     e.preventDefault();
+        // });
+
+        $('a')
+            .on('dblclick',function(){
+                $('p img').attr({src: '../images/sea.jpg', alt: 'sea'})
+            })
+            .on('click', function(e){
+                e.preventDefault();
+        })
+
+        // $(document).ready(function(){
+        //     $("button").click(function(){
+        //         $('p img').attr({ src: '../images/sea.jpg', alt: 'sea' });
+        //     });
+        // });
+
+        // $(button).on('click','button',function(){
+        //     $('p img').attr({ src: '../images/sea.jpg', alt: 'sea' });
+        // })
+
+    </script>
+</body>
+</html>

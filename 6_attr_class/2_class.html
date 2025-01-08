@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        img { padding: 5px; background: #777;}
+        .type1 {background: #8594e4}
+        .type2 {background: tomato}
+        .type3 {background: yellow}
+    </style>
+</head>
+<body>
+    <img src="../images/th1.jpg" alt="">
+    <img src="../images/th2.jpg" alt="">
+    <img src="../images/th3.jpg" alt="">
+
+    <script>
+
+        // const imgs = document.querySelectorAll('img')
+        // imgs.forEach((img, i, imgAll)=>{
+        //     img.addEventListener('click',()=>{
+        //         imgs.forEach((img,i,imgAll) => {
+        //             img.classList.add('type1');
+        //         })
+        //     })
+        // })
+
+        // 이미지 중 하나를 클릭하면, 모든 이미지에 class type1이 추가되도록
+        // $('img').on('click',function(){
+        //     // $('img').attr({'class':'type1'})
+        //     $('img').addClass('type1')
+        // })
+
+        // $('img').on('click',function(){
+        //     let n = $(this).index();
+        //     $(this).addClass(`type${n+1}`);
+        // })
+        
+        // 이미지를 클릭할 때마다 랜덤한 클래스를 적용
+        // $('img').on('click',function(){
+        //     let n = Math.ceil(Math.random()*3);
+        //     $('img').removeClass();
+        //     $(this).addClass(`type${n}`);
+        // })
+
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach((img,index,imgAll) => {
+            img.addEventListener('click',()=>{
+                let n = Math.ceil(Math.random()*3);
+                imgs.forEach((img,index,imgAll) =>{
+                    img.className = '';
+                })
+            img.classList.add(`type${n}`);
+            })
+        })
+    </script>
+</body>
+</html>

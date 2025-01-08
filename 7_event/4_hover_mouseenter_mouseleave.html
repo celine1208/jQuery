@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../images/flower.jpg" alt="flower">
+    <script>
+        // $('img').on('mouseenter',function(){
+        //     $(this).att({src: '../images/sea.jpg', alter:'sea'})
+        // })
+        // $('img').on('mouseleave',function(){
+        //     $(this).att({src: '../images/flower.jpg', alter:'flower'})
+        // })
+        $('img').hover(function(){
+            $(this).attr({ src: '../images/sea.jpg', alt:'sea'});
+        }, function(){
+            $(this).attr({ src: '../images/sea.jpg', alt:'sea'});
+        })
+    </script>
+</body>
+</html>

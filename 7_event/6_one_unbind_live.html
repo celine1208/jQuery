@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script src="../jquery-migrate-1.4.1.js"></script>
+    <style>
+        ul li {list-style: none; ;}
+        body {display: flex ; flex-direction: column;}
+        ul {display:flex;justify-content: center;}
+        ul li {width: 200px; height: 50px;
+            border: 1px solid #000;
+            text-align: center; line-height: 50px;
+        }
+        ul li a {width: 100%; height: 100%; display: block;
+            text-decoration: none; color: #000; font-size: 2rem;
+        text-transform:uppercase;
+    }
+        ul li a:hover {background: #000; color: #fff;
+        transition: 0.5s;
+        }
+        button {width: 200px; height: 50px; margin: 0 auto;
+        text-transform: uppercase;font-size: 2rem; background:#fff;
+        }
+        button:hover {background: #000; color: #fff; transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <button>추가취소</button>
+    <ul>
+        <li><a href="../images/flower.jpg">flower</a></li>
+        <li><a href="../images/sea.jpg">sea</a></li>
+        <li><a href="../images/Jellyfish.jpg">jellyfish</a></li>
+        <!-- <li><a href="../images/building.jpg">building</a></li> -->
+    </ul>
+    <img src="../images/flower.jpg" alt="flower">
+    <script>
+    
+        $('li a')
+            .on('click',function(e){
+                let imgSrc = $(this).attr('href')
+                let imgAlt = $(this).attr('alt')
+                $('img').attr({src:imgSrc, alt:imgAlt})
+            })
+            .on('click', function(e){
+                e.preventDefault();
+            })
+        
+
+        $('button').one('click',function(){
+            $('ul').append('<li><a href="../images/building.jpg">building</a></li>')
+        })
+
+        $(document).on('click','li a',function(e){
+            e.preventDefault();
+            let imgSrc = $(this).attr('href')
+            let imgAlt = $(this).attr('alt')
+            $('img').attr({src:imgSrc, alt:imgAlt})
+        })
+        
+    </script>
+
+</body>
+</html>

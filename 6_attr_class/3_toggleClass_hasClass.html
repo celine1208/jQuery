@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggleClass,hasClass</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {width: 200px; height: 200px;
+            border:1px solid #000; float:left;
+            gap: 20px;
+        }
+        .type1 {background: #8ef6e4;}
+        .type2 {background: #9896f1;}
+    </style>
+    <script>
+        $(function(){
+            $('div').on('click',function(){
+                // hasClass 활용하여 type2를 삭제
+                if($(this).hasClass('type2')){
+                    $(this).removeClass('type2');
+                    $(this).toggleClass('type1');
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div class="type2"></div>
+    <div></div>
+</body>
+</html>

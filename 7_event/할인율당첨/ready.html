@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+		<title>Jump for Joy</title>
+		<link href="./styles/my_style.css" rel="stylesheet">
+		<script src="./scripts/jquery-3.7.1.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<h2>Jump for Joy Sale</h2>
+		</div>
+		<div id="main">
+			<div class="guest_box"><img src="images/jump1.jpg"/></div>
+			<div class="guest_box"><img src="images/jump2.jpg"/></div>
+			<div class="guest_box"><img src="images/jump3.jpg"/></div>
+			<div class="guest_box"><img src="images/jump4.jpg"/></div>
+		</div>
+		<script>
+
+			// 클래스 guest_box 중 하나를 클릭하면
+			// 당신의 할인율은 ${Math.ceil(Math.random()*4)*10}%입니다 
+			// 를 p 태그로 출력하시오.
+			// 할인율은 10, 20, 30, 40 중 하나입니다.
+			// 클릭 이벤트는 guest_box 네개 중 한번 클릭만 가능
+
+			// $(document).ready(function(){
+			// 	let clicked = false;
+			// 	$('.guest_box').on('click',function(){
+			// 		if(!clicked) {
+			// 			let n = Math.ceil(Math.random()*5)*10;
+			// 			$(#main).append(`<p> 당신의 할인율은 ${n}%입니다 </p>`);
+			// 			clicked = true;
+			// 		}
+			// 	})
+			// });
+
+			$(document).ready(function(){
+        		$('.guest_box').one('click', function(){
+            	let n = Math.ceil(Math.random() * 4) * 10;
+            	$('#main').append(`<p>당신의 할인율은 ${n}%입니다</p>`);
+            	$('.guest_box').off();
+       			});
+    		});
+		</script>
+	</body>
+</html>

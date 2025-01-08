@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {width: 500px; height: 500px;
+        border: 1px solid #000; margin: 50px auto 0;
+        cursor: none;
+        }
+        span {position: absolute;
+        width: 50px; height: 50px; border-radius: 50%;
+        background: #000; display: none;
+        pointer-events: none;
+        background: linear-gradient(45deg, #9896f1,#ff5d9e, #f7e185);
+        animation: spinning 1s linear infinite;
+        }
+        @keyframes spinning {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        $('div').on('mousemove',function(e){
+            $('span').css({top: e.pageY, left: e.pageX}).show();
+        })
+        $('div').on('mouseleave',function(){
+            $('span').hide();
+        })
+        
+    </script>
+</body>
+</html>
