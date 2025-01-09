@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stop</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {
+            position: relative;
+            width: 100px; height: 100px;
+            background: #ccf;
+            }
+    </style>
+</head>
+<body>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <div></div>
+    <script>
+        $('#start').on('click',function(){
+            $('div').animate({left: 500, opacity: 0.5},2000)
+                    .animate({left: 100, opacity: 1},2000)
+                    .slideUp(2000)
+        })
+        $('#stop').on('click',function(){
+            $('div').stop() // false, true
+            // $('div').stop(true, true)
+            // $('div').stop(true, false)
+            // $('div').stop(false, true)
+            // $('div').stop(false, false)
+        })
+    </script>
+</body>
+</html>

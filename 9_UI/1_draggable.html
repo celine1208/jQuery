@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>draggable</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <style>
+        div { width: 300px; height: 300px;
+            background: #ccf;
+            border-radius: 50%;
+            line-height: 300px;
+            text-align: center;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div>DRAG ME</div>
+    <script>
+        // jQuery UI 라이브러리를 사용
+        $( function() {
+            $( "div" ).draggable();
+        });
+    </script>
+</body>
+</html>

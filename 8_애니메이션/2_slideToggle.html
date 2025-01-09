@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideToggle</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        dl {width: 300px; margin: 30px auto 0;}
+        dt {padding: 10px; background: #a21232; color: #fff;
+        border-bottom: 2px solid #000;
+        }
+        dd {margin: 0; padding: 20px 10px; border: 1px solid #000;}
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>Legends never die</dt>
+        <dd>When the world is calling you
+            Can you hear them screaming out your name?</dd>
+        <dt>Legends never die</dt>
+        <dd>They become a part of you
+            Every time you bleed for reaching greatness</dd>
+        <dt>Relentless you survive</dt>
+        <dd>They never lose hope when everything's cold
+            And the fighting's near</dd>
+        <dt>It's deep in their bones</dt>
+        <dd>They'll run into smoke when the fire is fierce
+            Oh, pick yourself up</dd>
+    </dl>
+    <script>
+        $('dl dd').hide();
+        $('dl dt').on('click', function(){
+            $(this).next(':not(:animated)').slideToggle(600);
+        })
+    </script>
+</body>
+</html>

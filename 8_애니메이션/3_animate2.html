@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {width: 200px; overflow: hidden;}
+    </style>
+</head>
+<body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <div>
+        <img src="../images/sample1.jpg" alt="sample1">
+    </div>
+    <script>
+        $('#hide').on('click',function(){
+            $('div:not(:animated)').animate({width: 0},1000)
+        })
+        $('#show').on('click', function(){
+            $('div:not(:animated)').animate({width: 200}, 1000)
+        })
+    </script>
+</body>
+</html>

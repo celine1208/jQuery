@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate3</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        #wrap {width: 400px; border: 5px solid skyblue;
+            overflow: hidden;
+        }
+        #box {width: 800px; display: flex;
+            margin-left: -400px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box">
+            <img src="../images/flower.jpg" alt="flower">
+            <img src="../images/building.jpg" alt="building">
+        </div>
+    </div>
+    <script>
+        $('#box img:eq(0)').on('click', function(){
+            $('#box').animate({marginLeft: -400})
+        });
+        $('#box img:eq(1)').on('click', function(){
+            $('#box').animate({marginLeft: 0})
+        });
+
+    </script>
+</body>
+</html>

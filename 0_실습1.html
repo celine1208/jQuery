@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스이벤트</title>
+    <script src="./jquery-3.7.1.js"></script>
+    <style>
+        body { overflow: hidden; width: 100%; height: 100vh; margin:0;
+         background: #8f71ff; color: #fff;
+         display: flex; justify-content: center; align-items: center;
+         transform-style: preserve-3d; perspective: 1000px;
+        }
+        div { font-size: 20vw; transition: 1s; background: #ff487e;
+        box-shadow: 10px 10px 10px #00000055;
+        }
+        /* div:hover { transform: translateZ(500px); rotateY(-70deg);} */
+
+    </style>
+</head>
+<body>
+    <div>123456789</div>
+    <script>
+        $('body').on('mousemove', function(e){
+            if ( e.pageX < $(window).width()/2 )
+                {$('div').css({transform: 'translateZ(-500px) rotateY(-70deg)'})
+            }
+            else {
+                $('div').css({transform:'translateZ(-500px) rotateY(70deg)'})
+            }
+        });
+        $('body').on('mouseleave', function(){
+            $('div').css({transform: 'translateZ(0px) rotateY(0deg)'})
+        })
+
+    </script>
+</body>
+</html>

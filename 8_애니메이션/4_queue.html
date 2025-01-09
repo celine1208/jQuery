@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>queue</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: #000;
+            position: relative;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">이동</a>
+    <button>button</button>
+    <div id="box"></div>
+    <script>
+        $('a').on('click', function(){
+            $('div').animate({left: `+=400`, opacity: 0.5}, 1000)
+                    .animate({top: 400}, 1000)
+                    .slideUp(1000);
+        })
+        $('button').on('click', function(){
+            $('div').animate({left: `+=50`, width:`-=10`, height:`-=10`, opacity:`-=0.1`}, 1000);
+        })
+    </script>
+</body>
+</html>

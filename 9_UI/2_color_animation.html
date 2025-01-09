@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorAnimation</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script src="../jquery-ui.js"></script>
+    <style>
+        div {
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            width: 300px;
+            height: 300px;
+            background:#f0d43a;
+            border-radius: 50%;
+            font-size: 3rem;
+            text-transform: uppercase;
+            color:#22b2da;
+        }
+    </style>
+</head>
+<body>
+    <div>Change</div>
+    <script>
+        $('div').on('click', function(){
+            // $(this).css({backgroundColor:'#22b2da',color:'#f0d43a'})
+            // $(this).animate({backgroundColor:'#22b2da',color:'#f0d43a'}, 500)
+            $(this).animate({height:100},500,'easeOutBounce')
+        })
+    </script>
+</body>
+</html>

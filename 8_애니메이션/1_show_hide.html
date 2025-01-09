@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        div {width: 300px; height: 300px; border: 1px solid #000;
+        background-color: #6173f4; margin-top: 30px;
+        /* display: none; */
+        /* position: absolute; right:0; */
+        ;}
+
+    </style>
+</head>
+<body>
+    <button id="show">show</button>
+    <button id= "hide">hide</button>
+    <button id= "toggle">toggle</button>
+    <div></div>
+    <script>
+        $('div').hide();
+        $("#show").on('click',function(){
+            $('div:not(:animated)').show(2000,'linear',function(){
+                $('div').css({background: '#00f'});
+            });
+        })
+        $('#hide').on('click',function(){
+            $('div:not(:animated)').hide(2000,'linear',function(){
+                $('div').css({background: '#f00'});
+            });
+        })
+
+        $('#toggle').on('click',function(){
+            // if($('div').css('display') == 'none'){
+            //     $('div').show();
+            // }
+            // else{$('div').hide();}
+            $('div:not(:animated)').toggle(1000);
+        });
+    </script>
+</body>
+</html>
