@@ -5,13 +5,11 @@
 <title>Smooth Animated jQuery Menu</title>
 <link rel="stylesheet" href="./animated-menu.css"/>
 <!-- jQuery library -->
-
+<script src="./js/jquery-3.7.1.js"></script>
 </head>
 
 <body>
-
 	<p>Rollover a menu item to expand it.</p>
-	
 	<ul>
 		<li class="green">
 			<p><a href="#">Home</a></p>
@@ -34,12 +32,12 @@
 			<p class="subtext">Legal things</p>
 		</li>
 	</ul>
-	
-	
 	<script>
-		
-		
-			
+		$('li').hover(function(){
+			$(this).stop().animate({height:150},500)}
+			,function(){
+				$(this).stop().animate({height:50},500)
+			});
 	</script>
 	
 </body>

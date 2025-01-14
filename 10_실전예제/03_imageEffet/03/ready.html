@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title> 직접 만들어 보는 이미지 hover 효과 </title>
-
+	<script src="../../01_gallery/js/jquery-3.7.1.js"></script>
 	<style>
 		body {
 			margin: 20px auto;
@@ -36,7 +36,37 @@
 
 
 	<script>
-
+		$('div').hover(function(){
+			$('img').css({	display: 'block',
+							opacity: 0.5,
+							width: 700,
+							height: 479,
+							left: -50,
+							top: -50
+						}).stop().animate({
+							opacity: 1,
+							width: 600,
+							height: 379,
+							left: 0,
+							top: 0
+						})
+					
+					
+		}, function(){
+			$('img').css({	fadeOut: 'slow',
+							opacity: 1,
+							width: 600,
+							height: 379,
+							left: 0,
+							top: 0
+						}).animate({
+							opacity: 1,
+							width: 600,
+							height: 379,
+							left: 0,
+							top: 0
+						})
+		})
 
 
 	</script>

@@ -3,10 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>어디서나 펼쳐지는 내비게이션</title>
-
 <style>
 
-	*{	margin:0; padding:0;	}
+	*{margin:0; padding:0;}
 
 	div#container {
 		width:600px;
@@ -26,8 +25,8 @@
 		z-index:2;
 	}
 			   
-	ul { 
-		width:600px; 
+	ul {
+		width:600px;
 		height:200px;
 		list-style:none;
 		left:-600px;
@@ -42,31 +41,52 @@
 		float:left;
 		opacity:0.7;
 	}
-
 </style>
-
+<script src="./js/jquery-3.7.1.js"></script>
+<script src="./js/jquery-migrate-1.4.1.js"></script>
 </head>
 
 <body>
-
 	<div id="container">
 		<div id="home">HOME </div>
 	  
-		<ul id="menu">     
-			<li><img src="th_bg1.jpg" /></li>
-			<li><img src="th_bg2.jpg" /></li>
-			<li><img src="th_bg3.jpg" /></li>
+		<ul id="menu">
+			<li><img src="th_bg1.jpg"/></li>
+			<li><img src="th_bg2.jpg"/></li>
+			<li><img src="th_bg3.jpg"/></li>
 		</ul>
 	</div>
 
-	<script>	
+	<script>
 	
 		/* 할 일 목록을 적어보세요 */
-	   
-	   
-	   
+		// #home 클릭시 #menu 가 나왔다 들어가도록 토글적용
+		// #menu li 롤오버시 투명도 적용
+		// #home에 마우스 움직일 때 #container 가 위아래로 움직이도록
 
-		 
+		$('#home').toggle(function(){
+			$('#menu:not(:animated)').animate({left:50},1000)
+		},function(){
+			$('#menu:not(:animated)').animate({left:-600},1000)
+	   	})
+
+		$('#menu li').hover(function(){
+			$(this).stop().animate({opacity:1},300)
+		},function(){
+			$(this).stop().animate({opacity:0.7},300)
+		})
+
+		$('#home').on('mousemove',function(e){
+			$('#container').css({top:e.pageY-$(this).height()/2})
+			if($('#container').offset().top < 0){
+				$('#container').css({top:0})
+			}
+		})
+
+		$('#home').on('mouseleave',function(){
+			$('#container').animate({top:0},500)
+		})
+		
 	</script>
 	
 	

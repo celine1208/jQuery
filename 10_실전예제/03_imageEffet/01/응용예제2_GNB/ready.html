@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="UTF-8" />
-	<title></title>
+<meta charset="UTF-8" />
+<title>응용예제gnb2</title>
+<script src="../../../01_gallery/js/jquery-3.7.1.js"></script>
 	<style>
 		body {
 			padding: 0;
@@ -146,7 +146,11 @@
 	</div>
 
 	<script>
-
+		$('#gnb li').hover(function () {
+			$(this).children('dl').stop().slideDown(100);
+		}, function () {
+			$(this).children('dl').stop().slideUp(100);
+		});
 	
 
 	</script>

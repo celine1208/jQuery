@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>sample3</title>
-<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script src="../js/jquery-3.7.1.js"></script>
 <style type="text/css">
 
 	body{
@@ -13,7 +13,7 @@
 		width:800px;
 		height:300px;
 		margin:50px auto;
-		overflow:hidden;
+		/* overflow:hidden; */
 	}
 	dl{
 		width:900px;
@@ -92,26 +92,22 @@
 	</div>
 	
 	<script type="text/javascript">
+		$('dd:not(:eq(0))').width(0)
+		$('dt:first span').addClass('selected')
+		$('dt').on('click',function(){
+			$('dd').not($(this).next()).animate({width:0})
+			$(this).next().animate({width:695})
+			$('dt span').removeClass('selected')
+			$(this).children().addClass('selected')
+
+		}).on('mouseenter', function(){
+			$(this).children().addClass('over')
+		}).on('mouseleave', function(){
+			$('dt span').removeClass('over')
+		})
+
 	
-		$("dd:not(:first)").css("width","0px");
-		
-		$("dt:first span").addClass("selected");
-		
-		$("dl dt").click(function(){
-		    
 
-
-
-		}).mouseover(function(){
-			
-			// 마우스 오버시 클래스 over 추가
-			
-		}).mouseout(function(){
-		
-			// 마우스 오버시 클래스 over 삭제
-
-		});
-	
 	</script>
 	
 	

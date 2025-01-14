@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>넓이위치명령어</title>
+    <script src="./jquery-3.7.1.js"></script>
+    <style>
+        body {margin:0;}
+
+        .box {
+            padding: 100px;
+            margin: 50px;
+            width: 300px; height: 200px;
+            border: 10px solid #000;
+            box-sizing: border-box;
+        }
+
+        #parent {
+            position: absolute;
+            top: 100px; left:100px;
+            width: 300px; height: 300px;
+            border: 10px solid #000;
+        }
+
+        #child {
+            padding-top: 50px;
+            width: 500px;
+            height: 500px;
+            background: #ccf;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            // box-sizing: 미적용시 값
+            console.log($(".box").css('width'))
+            console.log($(".box").width()) // width
+            console.log($(".box").innerWidth()) // width + padding
+            console.log($(".box").outerWidth()) // width + padding + border
+            console.log($(".box").outerWidth(true)) //margin값 포함
+
+            // 위치 position, offset
+            console.log($('#parent').css('top'))
+            console.log($('#parent')).position('top') //부모 element 기준
+            console.log($('#parent').offset().top) // document
+
+            console.log($("child").scrollTop())
+
+            $('#parent').on('scroll', function(){
+                console.log($('#child').position().top)
+                console.log($('#child').offset().top)
+
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+    <div class="box">box</div>
+    <div id="parent">
+        <div id="child">test</div>
+    </div>
+</body>
+</html>

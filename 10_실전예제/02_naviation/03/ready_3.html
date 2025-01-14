@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title> 슬라이딩 내비게이션(바네이 메뉴) </title>
-
+<script src="./js/jquery-3.7.1.js"></script>
 <style>
 
 	body {
 		margin: 20px auto;
-		padding: 0;	
+		padding: 0;
 		width: 600px;
 		font-size:13px;
 		font-family:Arial, Helvetica, sans-serif;
@@ -16,18 +16,18 @@
 	}
 
 	div#slider {
-		margin:0 auto; 
-		background:#FFF; 
-		width:600px; 
+		margin:0 auto;
+		background:#FFF;
+		width:600px;
 		border:#FDF6DD 2px solid;
 		margin-top:100px;
 		overflow:hidden;
-		position:relative; 
+		position:relative;
 	}
 
-	div#viewer { 
+	div#viewer {
 		height:350px;
-		position:relative; 
+		position:relative;
 	}
 
 	img{
@@ -43,7 +43,7 @@
 	img#image4{	left:1800px;	top:0px;	}
 			
 			
-	/*--------   ul li CSS ------------ */		
+	/*--------   ul li CSS ------------ */
 	#btnGroup {
 		position:absolute;
 		bottom:2%;
@@ -54,10 +54,10 @@
 			   
 	#btnGroup li {
 		float:left;
-		width:16px; 
-		height:16px;			
+		width:16px;
+		height:16px;
 		list-style:none;
-		margin-right:6px;	
+		margin-right:6px;
 		background-color:#60F;
 		cursor:pointer;
 	}
@@ -75,7 +75,7 @@
 	ul#btnGroup li a:hover{	background:#CCFF00;	}
 
 </style>
-</head>  
+</head>
     
 <body>
 
@@ -86,17 +86,52 @@
 			<img id="image2" src="image/slide2.jpg" alt="">
 			<img id="image3" src="image/slide3.jpg" alt="">
 			<img id="image4" src="image/slide4.jpg" alt="">
-		</div> 
+		</div>
 		
 	  <ul id="btnGroup">
 			<li id="btnLeft"><a href="#">◀</a></li>
-			<li id="btnRight"><a href="#">▶</a></li>     
+			<li id="btnRight"><a href="#">▶</a></li>
 	   </ul>
 		
 	</div>
 
 	<script>
+		function slider (){
+			if($("#viewer").css("left") == "-1800px"){
+				$('#viewer:not(:animated)').animate({left:0})
+			}
+			else{$('#viewer:not(:animated)').animate({left:'-=600px'},1000);
+			}
+		}
+		let timer = setInterval(slider, 2000);
 
+		$('#btnRight').on('click',function(){
+			clearInterval(timer);
+			timer = setInterval(slider,2000)
+		})
+		$('#btnLeft').on('click',function(){
+			clearInterval(timer);
+			timer = setInterval(slider,2000)
+
+		})
+
+		$('#btnRight').on('click',function(e){
+			e.preventDefault()
+			if($("#viewer").css("left") == "-1800px"){
+				$('#viewer:not(:animated)').animate({left:0})
+			}
+			else{$('#viewer:not(:animated)').animate({left:'-=600px'});
+			}
+		})
+
+		$('#btnLeft').on('click',function(e){
+			e.preventDefault()
+			if($("#viewer").css("left") == "0px"){
+				$('#viewer:not(:animated)').animate({left:-1800})
+			}
+			else{$('#viewer:not(:animated)').animate({left:'+=600px'},500);
+			}
+		})
 		
 
 		

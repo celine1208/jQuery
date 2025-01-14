@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <title> Tree 형 내비게이션 </title>
+	<script src="./js/jquery-3.7.1.js"></script>
 <style>
 	body {
 		margin:20px auto;
-		padding:0;	
+		padding:0;
 		width:200px;
 		font-size:13px;
 		font-family:Arial, Helvetica, sans-serif;
 	}
 	ul#navi {
-		width:200px; 
+		width:200px;
 		text-indent:10px;
 	}
 
@@ -51,40 +52,45 @@
 		color:#000;
 	}
 				
-	ul.sub li:hover{	background:#CCFF00;	}
+	ul.sub li:hover{background:#CCFF00;}
 </style>
 </head>
 
 <body>
-
-
 	<ul id="navi">
 		 <li class="group">
 			 <div class="title"> Title 1 </div>
 			 <ul class="sub">
-			   <li><a href="#"> sub1 </a></li> 
-			   <li><a href="#"> sub1 </a></li> 
-			   <li><a href="#"> sub1 </a></li> 
+			   <li><a href="#"> sub1 </a></li>
+			   <li><a href="#"> sub1 </a></li>
+			   <li><a href="#"> sub1 </a></li>
 			 </ul>
-		 </li>  
+		 </li>
 		 <li class="group">
 			 <div class="title"> Title 2 </div>
 			 <ul class="sub">
-			   <li><a href="#"> sub1 </a></li>            
+			   <li><a href="#"> sub1 </a></li>
 			 </ul>
 		 </li>
 		 <li class="group">
 			 <div class="title"> Title 3 </div>
 			 <ul class="sub">
-			   <li><a href="#"> sub1 </a></li>  
-			   <li><a href="#"> sub1 </a></li>  
+			   <li><a href="#"> sub1 </a></li>
+			   <li><a href="#"> sub1 </a></li>
 			 </ul>
-		 </li>    
+		 </li>
 	</ul>
 
 
 	<script>
-	
+		// slider
+		$('.sub').hide();
+		$('.title').on('click',function(){
+			$('.sub').not($(this).next()).slideUp(500)
+			$(this).next().slideToggle(500);
+		})
+
+
 		/* 할 일 목록
 		
 		1. 로드시 서브메뉴(클래스가 sub인 요소)는 보이지 않도록 한다.

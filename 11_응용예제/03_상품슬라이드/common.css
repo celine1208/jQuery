@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/* 초기화 */
+* {box-sizing: border-box;}
+ul {margin: 0;padding: 0;}
+li {list-style: none;}
+
+#scrollWrap {
+    position: relative;
+    padding: 50px;
+    width: 500px;
+    border: 1px solid #000;
+}
+
+/* 버튼 */
+#scrollWrap span{
+    position: absolute;
+    top: 120px;
+}
+#scrollWrap span.left { left: 20px; }
+#scrollWrap span.right { right: 20px; }
+
+.scroll {
+    width: 400px;
+    overflow: hidden;
+}
+.scroll ul {
+    width: 1000px;
+    display: flex;
+}
+.scroll ul li {
+    width: 90px;
+    margin: 0 5px;
+}
+

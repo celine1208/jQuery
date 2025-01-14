@@ -1,14 +1,8 @@
 <!doctype html>
 <html>
-
 <head>
 	<meta charset="utf-8">
-
 	<title> one page scroll </title>
-
-	<script src="js/jquery-1.7.2.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-
 	<style>
 		/********************** navi**********************/
 		* {
@@ -18,8 +12,7 @@
 
 		#navigation {
 			position: fixed;
-			top: 0px;
-			left: 0px;
+			top: 0px; left: 0px;
 			height: 80px;
 			width: 100%;
 			min-width: 700px;
@@ -47,39 +40,35 @@
 			color: #0F0;
 		}
 
-		#wrap {
-			width: 800px;
-			margin: 0 auto;
-			margin-top: 80px;
+		#wrap {margin-top: 80px;}
+
+		#wrap > div {
+			/* height: calc(100vh - 80px); */
+			height: 100vh;
+			font-size: 10vw;
 		}
 
 		#red {
-			background: red;
-			height: 700px;
+			background: #ff5d9e;
 		}
 
 		#blue {
-			background: blue;
-			height: 700px;
+			background: #8f71ff;
 		}
 
 		#yellow {
-			background: yellow;
-			height: 700px;
+			background: #64c4ed;
 		}
 
 		#black {
-			background: black;
-			height: 700px;
+			background: #ffa8ec;
 		}
 	</style>
 	<!-- jQuery library -->
-
-
+	<script src="../js/jquery-3.7.1.js"></script>
 </head>
 
 <body>
-
 	<div id="navigation">
 		<ul>
 			<li><a href="#red"> RED </a> </li>
@@ -89,23 +78,28 @@
 		</ul>
 	</div>
 
-	<div id="wrap">
-		<div id="red">red</div>
-		<div id="blue">blue</div>
-		<div id="yellow">yellow</div>
-		<div id="black">black</div>
-	</div>
-
+		<div id="wrap">
+			<div id="red">1</div>
+			<div id="blue">2</div>
+			<div id="yellow">3</div>
+			<div id="black">4</div>
+		</div>
 
 	<script>
 
 		/**
 		 * 할 일 목록
-		 * 
 		 * Tip1. 요소가 이동하는 것이 아니라 요소의 위치로 스크롤이 움직이는 것
-		 * position()과 scrollTop 속성을 이용				
+		 * position()과 scrollTop 속성을 이용
 		 */
-
+		$("#navigation li").on('click',function(e){
+			e.preventDefault();
+			let idName = $(this).children('a').attr('href');
+			let pos = $(idName).position().top;
+			console.log(idName);
+			$('html, body').animate({scrollTop: pos - 80})
+		})
+	
 		 
 
 

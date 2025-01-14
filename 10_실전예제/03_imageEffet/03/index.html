@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../../../jquery-3.7.1.js"></script>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+		display: flex;
+	}
+	ul li {
+		position:relative;
+		width: 476px;
+		height: 505px;
+		overflow: hidden;
+	}
+	ul li img {
+		position:absolute;
+		left: 476px;
+		/* display: none; */
+		pointer-events: none;
+
+	}
+</style>
+<body>
+	<ul>
+		<li><img src="./images/fit_over.jpg" alt=""></li>
+		<li><img src="./images/frm_over.jpg" alt=""></li>
+		<li><img src="./images/ldn_over.jpg" alt=""></li>
+	</ul>
+	<script>
+		// 마우스 오버시 _over 이미지로 변경
+		// $('li').hover(function(){
+		// 	$(this).children().attr('src', $(this).children().attr('src').replace('.jpg', '_over.jpg'));
+
+		// }, function(){
+		// 	$(this).children().attr('src', $(this).children().attr('src').replace('_over.jpg', '.jpg'));
+		// });
+
+		$('ul li').each(function(){
+			let imgPath = $(this).children('img').attr('src');
+			let textPos = imgPath.indexOf('_over')
+			$(this).css({backgroundImage:`url(${imgPath.slice(0,textPos)}.jpg)`})
+		}).hover(function(){
+			$(this).children('img').stop().animate({left:0})
+		},function(){
+			$(this).children('img').stop().animate({left:476})
+		}).on('mousemove',function(e){
+			$(this).children('img').css({left:e.offsetX})
+		}).on('mouseleave',function(e){
+			if(e.offset < 0 ){
+				$(this).children().css({left:0})
+			} else if ( e.offsetX > 476){
+				$(this).children('img').css({left:476})
+			}
+		})
+
+
+
+
+	</script>
+</body>
+</html>

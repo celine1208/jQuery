@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body, h1, h2, h3, ul {margin:0; padding:0}
+li {list-style: none;}
+
+/* 폰트 */
+body{
+    font-family: 'GongGothicMedium';
+    font-weight: normal;
+    font-style: normal;
+}
+
+#area {
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    background: #c4bbf0;
+  }
+/* 마우스를 따라다니기 위해서 position 속성 적용 */
+#tip {
+    position: absolute;
+    top: 600px; left:0;
+    pointer-events: none;
+    height: 40px; width: 200px;;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 40px;
+}

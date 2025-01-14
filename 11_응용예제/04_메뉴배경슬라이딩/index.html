@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.7.1 .js"></script>
+</head>
+<style>
+    *{ box-sizing: border-box;}
+    body,ul {margin:0; padding:0;}
+    li {list-style: none;}
+
+    #wrap {position:relative;}
+
+    ul {
+        width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    ul li {
+        width: 200px; height: 150px;
+        border: 1px solid #000;
+    }
+
+    .arrow {
+        position: absolute;
+        top:0; left:0;
+        width: 200px; height: 150px;
+        background: #0007;
+        pointer-events: none;
+        
+    }
+</style>
+<body>
+    <div id="wrap">
+        <ul>
+            <li>list1</li>
+            <li>list2</li>
+            <li>list3</li>
+            <li>list4</li>
+            <li>list5</li>
+            <li>list6</li>
+            <li>list7</li>
+            <li>list8</li>
+            <li>list9</li>
+            <li>list10</li>
+        </ul>
+        <div class="arrow"></div>
+    </div>
+    <script>
+        $('.arrow').hide();
+        $("#wrap ul li").on('mouseenter',function(){
+            $('.arrow').show();
+            $('.arrow').stop()
+                       .animate({top:$(this).position().top, left:$(this).position().left})
+                       .css({opacity:0.5})
+        })
+        $("#wrap ul li").on('mouseleave',function(){
+            $('.arrow').hide();
+        })
+    </script>
+</body>
+</html>

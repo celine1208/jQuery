@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title> each() </title>
 	<!-- jQuery library -->
-
+	 <script src="../../../jquery-3.7.1.js"></script>
 </head>
 
 <body>
@@ -17,18 +17,11 @@
 
 
 	<script>
-		$('li').each(function (index, element) {
+		console.log($('li').text());
 
-			// 각 li의 인덱스 번호출력
-
-			// 각 li의 요소출력
-
-			// 각 li의 텍스트 출력
-
-			// 각 li의 data-test 값 출력
-
-			// li 마다 구분선 출력 
-
+		$('li').each(function () {
+			console.log($(this).text());
+			console.log($(this).data('test'));
 		});
 	</script>
 

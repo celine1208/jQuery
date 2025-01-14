@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title> 슬라이딩 내비게이션(바네이 메뉴) </title>
-
+<script src="./js/jquery-3.7.1.js"></script>
+<script src="./js/jquery-migrate-1.4.1.js"></script>
 <style>
 
 	body {
 		margin: 20px auto;
-		padding: 0;	
+		padding: 0;
 		width: 600px;
 		font-size:13px;
 		font-family:Arial, Helvetica, sans-serif;
@@ -16,22 +17,21 @@
 	}
 
 	div#slider {
-		margin:0 auto; 
-		background:#FFF; 
-		width:600px; 
+		margin:0 auto;
+		background:#FFF;
+		width:600px;
 		border:#FDF6DD 2px solid;
 		margin-top:100px;
 		overflow:hidden;
-		position:relative; 
+		position:relative;
 	}
 
-	div#viewer { 
+	div#viewer {
 		height:350px;
-		position:relative; 
+		position:relative;
 	}
 
 	img{
-		
 		position:absolute;
 	}
 
@@ -41,7 +41,7 @@
 	img#image4{	left:1800px;	top:0px;	}
 			
 			
-	/*--------   ul li CSS ------------ */		
+	/*--------   ul li CSS ------------ */
 	#btnGroup {
 		position:absolute;
 		bottom:2%;
@@ -52,10 +52,10 @@
 			   
 	#btnGroup li {
 		float:left;
-		width:16px; 
-		height:16px;			
+		width:16px;
+		height:16px;
 		list-style:none;
-		margin-right:6px;	
+		margin-right:6px;
 		background-color:#60F;
 		cursor:pointer;
 	}
@@ -73,36 +73,53 @@
 	ul#btnGroup li a:hover{	background:#CCFF00;	}
 
 </style>
-</head>  
+</head>
     
 <body>
 
 	<div id="slider">
-
 		<div id="viewer">
 			<img id="image1" src="image/slide1.jpg" alt="">
 			<img id="image2" src="image/slide2.jpg" alt="">
 			<img id="image3" src="image/slide3.jpg" alt="">
 			<img id="image4" src="image/slide4.jpg" alt="">
-		</div> 
+		</div>
 		
 	  <ul id="btnGroup">
 			<li id="btn0"><a href="image/slide1.jpg">1</a></li>
-			<li id="btn1"><a href="image/slide2.jpg">2</a></li>  
+			<li id="btn1"><a href="image/slide2.jpg">2</a></li>
 			<li id="btn3"><a href="image/slide3.jpg">3</a></li>
-			<li id="btn4"><a href="image/slide4.jpg">4</a></li>     
+			<li id="btn4"><a href="image/slide4.jpg">4</a></li>
 	   
 	   </ul>
 		
 	</div>
 
 	<script>
-		 
-		
-		 
-		 
-		 
-				 
+		$('#btnGroup li').on('click',function(e){
+			e.preventDefault()
+			let pos = $(this).index() * -$('#viewer img').width();
+			$('#viewer:not(:animated)').animate({left: pos})
+		})
+
+		function slider(){
+			if($("#viewer").css("left") == "-1800px"){
+				$("#viewer").animate({left:0},1000)
+			}
+			else {$("#viewer").animate({left: `-=600`}, 1000)}
+		}
+
+		// 버튼이 눌러졌을 때 setInterval을 멈추고 다시 시작하는 방법
+		let timer = setInterval(slider,2000)
+		$('#btnGroup li').on('click',function(e){
+			e.preventDefault()
+			let pos = $(this).index() * -$('#viewer img').width();
+			$('#viewer').animate({left: pos})
+			clearInterval(timer);
+			timer = setInterval(slider,2000)
+		})
+
+
 	</script>
 
 

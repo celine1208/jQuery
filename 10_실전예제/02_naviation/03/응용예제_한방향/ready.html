@@ -10,11 +10,10 @@
         p.prev { position: absolute; top: 50px; left: -10px; }
         p.next { position: absolute; top: 50px; right: -10px; }
         #wrap { width:100%; height:100%; overflow:hidden; }
-        ul { float: left; }
-        ul li { list-style: none; float: left; width:140px; height:105px; display:inline; }
-
+        #wrap ul { display:flex; }
+        #wrap ul li { list-style: none; float: left; width:140px; height:105px; display:inline; }
     </style>
-
+    <script src="../js/jquery-3.7.1.js"></script>
 </head>
 <body>
     <div>
@@ -28,10 +27,39 @@
             </ul>
         </div>
     </div>
-
     <script>
-	
+        // btnRight btnLeft
+        // div1 div2 div3
+        
+        function slider(){
+            $("#wrap ul:not(:animated)").animate({marginLeft:-liWidth},1000,function(){
+                $(this).append($('li:first',this))
+                .css({marginLeft:0})
+            })
+        }
+        
+        let timer = setInterval(slider,2000)
 
+        $('p').on('click',function(){
+            clearInterval(timer)
+        })
+
+        $('.next').on('click',function(){
+            slider();
+        })
+
+        let liWidth = $('#wrap ul li').width();
+        $('.next').on('click',function(){
+            $("#wrap ul:not(:animated)").animate({marginLeft:-liWidth},1000,function(){
+                $(this).append($('li:first',this))
+                        .css({marginLeft:0})
+            })
+        })
+        $('#prev').on('click',function(){
+            $('#wrap ul:not(:animated)').prepend($("#wrap ul li:last"))
+                         .css({marginLeft: - liWidth})
+                         .animate({marginLeft: 0})
+        })
     </script>
 </body>
 </html>

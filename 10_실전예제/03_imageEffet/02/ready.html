@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title> 배경색 애니메이션 변경 </title>
-
+	<script src="../../02_naviation/02/js/jquery-3.7.1.js"></script>
+	<script src="../../02_naviation/02/js/jquery-ui.js"></script>
 	<style>
 		body {
 			font-family: Verdana, Geneva, sans-serif;
@@ -21,23 +22,22 @@
 			margin-right: 5px;
 		}
 	</style>
-	<!-- jQuery library -->
-
-
 </head>
-
 <body>
-
 	<div id="colorPicker">
-		<div>red</div>
-		<div>maroon</div>
-		<div>brown</div>
-		<div>orange</div>
-		<div>yellow</div>
+		<div data-bg="#00bbf0">색상</div>
+		<div data-bg="#6643b5">색상</div>
+		<div data-bg="#e8630a">색상</div>
+		<div data-bg="#dc2f2f">색상</div>
+		<div data-bg="#ededed">색상</div>
 	</div>
 
 	<script>
-
+		$('#colorPicker div').each(function () {
+			$(this).css({backgroundColor: $(this).data('bg')});
+		}).on('click', function () {
+			$('body').animate({backgroundColor: $(this).data('bg')}, 300);
+		});
 
 	</script>
 </body>
