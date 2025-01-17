@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { box-sizing: border-box; }
+        body, ul {margin: 0; padding: 0;}
+        li {list-style: none;}
+
+        /* banner */
+        #bannerWrap { display: flex; overflow:hidden; }
+        #banner { display: flex;
+                  column-gap: 30px;
+        }
+        #banner li {
+            width: 250px; height: 200px;
+            background: #07BEB8;
+            border: 1px solid #000;
+            font-size: 3rem;
+        }
+    </style>
+    <script src="./jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            let liWidth = $('#banner li').outerWidth();
+            console.log(liWidth);
+            let liLength = $('#banner li').length;
+            console.log(liLength);
+            let columnGap = 30;
+            console.log(parseInt(columnGap));
+            console.log(liWidth * liLength + parseInt(columnGap) * (liLength - 1))
+            
+            // function roller(){
+            //     $('#banner').animate({marginLeft: - (liWidth + columnGap)}, 1000, 'linear', function(){
+            //         $('#banner').append($('#banner li:eq(0)'));
+            //         $('#banner').css('marginLeft', 0);
+            //     })
+            // }
+            // setInterval(roller, 1000)
+            
+            // 좌측롤링 함수
+            let num = 0;
+            function roller(){
+                num--;
+                if (num === -280) {
+                    $('#banner').append($('#banner li:eq(0)'));
+                    num = 0;
+                }
+                else {$('#banner').css({transform:`translateX(${num}px)`})}
+            }
+            let timer = setInterval(roller,5);
+
+            // 우측롤링 함수
+            function rollback(){
+                num++;
+                if (num === 1) {
+                    num = -280;
+                    $('#banner').prepend($('#banner li:last'));
+                    $('#banner').css({transform:`translateX(${num}px)`})
+                }
+                else {$('#banner').css({transform:`translateX(${num}px)`})}
+            }
+
+            // mouseenter 이벤트
+            $('#banner').on('mouseenter',function(){
+                clearInterval(timer);
+                timer = setInterval(rollback,5);
+            })
+
+            // mouseleave 이벤트
+            $('#banner').on('mouseleave',function(){
+                clearInterval(rollback);
+                timer = setInterval(roller,5);
+            })
+    });
+    </script>
+</head>
+<body>
+    <div id="bannerWrap">
+        <ul id="banner">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+</body>
+</html>
