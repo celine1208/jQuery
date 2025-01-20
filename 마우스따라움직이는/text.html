@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <style>
+        @font-face {
+        font-family: 'Tenada';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        }
+        * { margin:0; padding: 0;}
+
+        div {
+            font-family: 'Tenada';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 8em;
+            position: absolute;
+            top:40%; left: 0;
+            width: 100%;
+            text-align: center;
+            /* -webkit-text-stroke: 2px #fff; */
+            text-shadow: -2px -1px 0 #ffffff,
+                         2px -1px 0 #ffffff,
+                         -2px 1px 0 #ffffff,
+                         2px 1px 0 #ffffff;
+            transition: 0.2s linear;
+        }
+
+        div:nth-child(1) {letter-spacing: 0em;}
+        div:nth-child(2) {letter-spacing: 0.005em;}
+        div:nth-child(3) {letter-spacing: 0.01em;}
+        div:nth-child(4) {letter-spacing: 0.015em;}
+        div:nth-child(5) {letter-spacing: 0.02em;}
+        div:nth-child(6) {letter-spacing: 0.025em;}
+        div:nth-child(7) {letter-spacing: 0.03em;}
+
+        body {
+            width: 100%; height: 100vh;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center; align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div data-num="46">하포롱핑퐁</div>
+    <div data-num="38">하포롱핑퐁</div>
+    <div data-num="32">하포롱핑퐁</div>
+    <div data-num="27">하포롱핑퐁</div>
+    <div data-num="23">하포롱핑퐁</div>
+    <div data-num="20">하포롱핑퐁</div>
+    <div data-num="18">하포롱핑퐁</div>
+
+    <script>
+        $('body').on('mousemove', function(e){
+            $('div').each(function(){
+                let num = $(this).data('num')
+                let posX = (e.pageX - $(window).width()/2) / num * 3
+                let posY = (e.pageY - $(window).height()/2) / num * 3
+                $(this).css({transform: `translate(${posX}px,${posY}px)`})
+            })
+            console.log(e.pageX, e.pageY);
+        })
+    </script>
+</body>
+</html>

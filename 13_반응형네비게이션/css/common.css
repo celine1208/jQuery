@@ -1,0 +1,166 @@
+@charset "utf-8";
+
+/* reset */
+* {box-sizing: border-box;}
+body, h1, h2, h3, ul {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: #000;}
+
+.hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+body {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    font-weight: normal;
+    font-style: normal;
+}
+
+#header {
+    width: 100%; height: 75px;
+    border-bottom: 1px solid #000;
+    background: #fff;
+}
+#header h1 {
+    position:absolute;
+    z-index: 99;
+    padding: 15px 0 0 50px;
+}
+#gnb.mobile {right:0}
+
+.mobileBtn { display: none; }
+.mobileClose {
+    display: none;
+    position:absolute;
+    top:20px; right: 30px;
+    text-indent: -1000%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(../image/close.png) no-repeat center /cover;
+    width: 20px; height: 20px;
+}
+
+/* gnb */
+/* #gnb {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 75px;
+}
+#gnbList {
+    width: 100%; height: 75px;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    background: #fdb033;
+    overflow: hidden;
+}
+
+#gnbList .item > a {line-height: 75px;}
+
+.snb {
+    padding: 30px 0;
+}
+.snb li {line-height: 50px;} */
+
+/* section */
+
+section {
+    height: 100vh; padding: 50px;
+    background: no-repeat center / cover;
+}
+
+#section1 {background-image: url(../image/bg1.jpg);}
+
+
+/* tablet 1024 */
+@media screen and (min-width: 801px) {
+    #gnb {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    #gnbList {
+        padding: 0 20px;
+        width: 100%; height: 75px;
+        border-bottom: 1px solid #000;
+        display: flex;
+        justify-content: end;
+        column-gap: 30px;
+        background: #ffffff;
+        overflow: hidden;
+    }
+    
+    #gnbList .item > a {line-height: 75px;}
+    
+    .snb {
+        padding: 30px 0;
+    }
+    .snb li {line-height: 50px;}
+}
+
+/* desktop */
+@media screen and (min-width: 1024px) {
+    #gnb {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    #gnbList {
+        justify-content: center;
+    }
+    
+    #gnbList .item > a {line-height: 75px;}
+    
+    .snb {
+        padding: 30px 0;
+    }
+    .snb li {line-height: 50px;}
+}
+
+/* mobile 440 */
+@media screen and (max-width: 800px) {
+    .mobileBtn {
+        z-index: 100;
+        position: absolute;
+        top: 20px; right: 40px;
+        display: block;
+        width: 30px; height: 30px;
+        background: url(../image/mobileBtn.png) no-repeat center / cover;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    #gnb {
+        position: fixed;
+        top: 0;
+        right: -50%;
+        width: 50%;
+        height: 100vh;
+        background: #ffffff;
+        z-index: 100;
+        transition: 1s;
+    }
+    #gnbList .item{ padding: 30px 30px 10px 30px; }
+    #gnbList .item:nth-child(1) {
+        margin: 20px 0 0 0;
+    }
+    #gnbList .item > a {
+        font-size: 20px;
+        color: #000; }
+    .snb { margin-top: 15px;}
+    .snb li {
+        margin-left: 30px;
+        padding: 15px 15px 15px 0;
+        border-bottom: 1px solid #dcdcdc;
+    }
+    .snb li a {
+        color: #000;
+     }
+    .mobileClose { display: block; }
+}

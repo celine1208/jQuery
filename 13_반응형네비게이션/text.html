@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>반응형 네비게이션</title>
     <style>
-        
+        button {margin: 40px 0 0 40px;}
+        div {
+            margin: 40px;
+            width: 100px; height: 200px;
+            transition: 1s;
+        }
+
+        @media screen and (min-width: 800px) {
+            div.desk { width: 500px; background: #FFC145; }
+        }
+        @media screen and (max-width: 799px) {
+            div.mobile { width: 200px; background: #FB4141; }
+        }
+
     </style>
     <script src="/jquery-3.7.1.js"></script>
 </head>
 <body>
     <button>크기조절</button>
+    <span></span>
     <div></div>
+    <script>
+        $('button').click(function() {
+            $('span').text($(window).width());
+            if($(window).width() > 800) {
+                // $('div').animate({ width: '700px' }, 1000);
+                $('div').addClass('desk').removeClass('mobile');
+            }
+            else {
+                // $('div').animate({ width: '300px' }, 1000);
+                $('div').addClass('mobile').removeClass('desk');
+            }
+        });
+    </script>
 </body>
 </html>
